@@ -31,9 +31,6 @@ generate:
 	$(DOCKER_COMPOSE) exec app php artisan ide-helper:meta
 	$(MAKE) format
 
-db:
-	$(DOCKER_COMPOSE) exec postgres psql -U laravel -d laravel
-
 composer_install:
 	$(DOCKER_COMPOSE) run --rm app rm -rf vendor
 	$(DOCKER_COMPOSE) run --rm app composer install
