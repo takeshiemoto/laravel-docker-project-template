@@ -40,8 +40,11 @@ services:
             MYSQL_USER: user
         volumes:
             - mysql_data:/var/lib/mysql
+        ports:
+            - "3306:3306"
         networks:
             - laravel
+        command: sh -c "echo 'CREATE DATABASE IF NOT EXISTS laravel_testing;' | mysql -u root -p\${MYSQL_ROOT_PASSWORD} && mysqld"
 
     redis:
         image: redis:latest
