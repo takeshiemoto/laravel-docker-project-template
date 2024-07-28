@@ -25,6 +25,9 @@ test:
 format:
 	$(DOCKER_COMPOSE) exec app ./vendor/bin/php-cs-fixer fix
 
+phpstan:
+	$(DOCKER_COMPOSE) exec app ./vendor/bin/phpstan analyse
+
 generate:
 	$(DOCKER_COMPOSE) exec app php artisan ide-helper:models -W
 	$(DOCKER_COMPOSE) exec app php artisan ide-helper:generate
