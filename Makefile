@@ -5,14 +5,14 @@ DOCKER_COMPOSE = docker-compose
 init: clean
 	$(DOCKER_COMPOSE) down --volumes --remove-orphans
 	$(DOCKER_COMPOSE) up -d --build
-	sleep 10
+	sleep 15
 	$(DOCKER_COMPOSE) exec app php artisan migrate
 	$(DOCKER_COMPOSE) exec app php artisan db:seed
 
-start:
+up:
 	$(DOCKER_COMPOSE) up -d
 
-stop:
+down:
 	$(DOCKER_COMPOSE) down
 
 clean:
