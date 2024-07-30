@@ -23,7 +23,7 @@ test:
 	$(DOCKER_COMPOSE) exec php php artisan test
 
 format:
-	$(DOCKER_COMPOSE) exec php ./vendor/bin/php-cs-fixer fix
+	$(DOCKER_COMPOSE) exec php ./vendor/bin/pint
 
 phpstan:
 	$(DOCKER_COMPOSE) exec php ./vendor/bin/phpstan analyse
